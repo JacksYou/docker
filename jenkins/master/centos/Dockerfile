@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:latest
 USER root
 
 # Use root home as working dir
@@ -14,8 +14,8 @@ RUN yum -y install epel-release
 RUN yum -y install git wget deltarpm
 
 # Install all Java and JVM related packages
-ARG JAVA_VERSION=java-1.8.0
-RUN yum -y install ${JAVA_VERSION}-openjdk-headless ${JAVA_VERSION}-openjdk-devel jetty groovy
+ARG JAVA_VERSION= 8
+RUN yum -y install openjdk-${JAVA_VERSION}-jdk-headless jetty8 groovy2
 
 # All dependencies for N-BodyShop codes
 ENV DEPENDENCIES make gcc gcc-c++ gcc-devel openmpi openmpi-devel openssh
@@ -24,7 +24,7 @@ RUN yum -y install ${DEPENDENCIES}
 # Install supervisord
 RUN yum -y install python python-setuptools
 RUN easy_install supervisor ; chmod +x /usr/bin/supervisord
-ADD supervisord.conf /etc/supervisor/
+ADD ../supervisord.conf /etc/supervisor/
 
 # Install charm++ according to ChaNGa build wiki
 RUN git clone https://charm.cs.illinois.edu/gerrit/charm
