@@ -25,12 +25,12 @@ RUN pip install --upgrade pip
 RUN pip install supervisor
 ADD supervisord.conf /etc/supervisor/
 
-# Install charm++ according to ChaNGa build wiki
-#RUN git clone https://charm.cs.illinois.edu/gerrit/charm
-#RUN cd charm ; git checkout charm-6.7.1 ; \
-#    ./build charm++ mpi-linux-x86_64 --with-production ; \
-#    ./build ChaNGa  mpi-linux-x86_64 --with-production ; \
-#    cd /
+ Install charm++ according to ChaNGa build wiki
+RUN git clone https://charm.cs.illinois.edu/gerrit/charm
+RUN cd charm ; git checkout charm-6.7.1 ; \
+    ./build charm++ mpi-linux-x86_64 --with-production ; \
+    ./build ChaNGa  mpi-linux-x86_64 --with-production ; \
+    cd /
 
 # Install tipsy
 RUN apt-get -y install libxt-dev libxaw7-dev libncurses5-dev libx11-dev
