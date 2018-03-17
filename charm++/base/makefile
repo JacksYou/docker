@@ -1,6 +1,6 @@
 test:
-	docker build --force-rm .
+	docker build --no-cache --force-rm .
 
 push:
-	docker build -t jacksyou/charm:base .
-	docker push jacksyou/charm:base 
+	docker build --rm -t jacksyou/charm:base .
+	docker push jacksyou/charm:base
