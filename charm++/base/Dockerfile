@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER James You <youy2@mcmaster.ca>
+LABEL maintainer youy2@mcmaster.ca
 
 ENV CHARM_REPO https://charm.cs.illinois.edu/gerrit/charm
 
