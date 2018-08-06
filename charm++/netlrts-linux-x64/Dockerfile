@@ -1,6 +1,6 @@
 FROM jacksyou/charm:base
 
-LABEL maintainer youy2@mcmaster.ca
+LABEL maintainer James You <youy2@mcmaster.ca>
 
 USER root
 RUN apt-get -qq update
